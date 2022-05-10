@@ -106,11 +106,11 @@ char	*ft_strjoin(char *line, char *buff)
 	i_b = -1;
 	while (buff[++i_b])
 	{
-		joined[i_l++] = buff[i_b];
+		joined[i_l] = buff[i_b];
 		if (buff[i_b] == '\n')
 			break ;
+		i_l ++;
 	}
 	joined[i_l] = '\0';
 	return (joined);
 }
-
