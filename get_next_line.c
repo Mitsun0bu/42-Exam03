@@ -1,16 +1,4 @@
-#include <fcntl.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
-#define NO_NL -1
-
-char	*get_next_line(int fd);
-char	*get_line(int fd, char *line, char *buff);
-int		ft_strlen(char *s);
-int		ft_find_nl_index(char *s);
-char	*ft_strjoin(char *line, char *buff);
+#include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
@@ -96,7 +84,7 @@ char	*ft_strjoin(char *line, char *buff)
 		buff_size = ft_strlen(buff);
 	else
 		buff_size = ft_find_nl_index(buff);
-	joined = malloc(sizeof(char) * (ft_strlen(line) + buff_size + 1));
+	joined = malloc(sizeof(char) * (ft_strlen(line) + buff_size + 2));
 	if (!joined)
 		return (NULL);
 	i_l = -1;
@@ -108,7 +96,10 @@ char	*ft_strjoin(char *line, char *buff)
 	{
 		joined[i_l] = buff[i_b];
 		if (buff[i_b] == '\n')
+		{
+			i_l++;
 			break ;
+		}
 		i_l ++;
 	}
 	joined[i_l] = '\0';
