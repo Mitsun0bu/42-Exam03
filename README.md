@@ -1,4 +1,4 @@
-# 42_exam_03_training
+# 42_exam_03
 
 This repository contains my solutions for the 42 School exam_03.  
 You may be asked to do :   
